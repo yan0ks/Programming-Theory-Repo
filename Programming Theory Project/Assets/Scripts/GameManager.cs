@@ -1,27 +1,51 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    Cat cat;
+    List<Animal> animals;
 
     [SerializeField]
-    Dog dog;
+    TMP_InputField animalName;
+    string animalName1;
 
     [SerializeField]
-    Horse horse;
+    GameObject[] deactivatedUI;
 
     [SerializeField]
-    Rabbit rabbit;
+    TMP_Text outputText;
 
-    // Start is called before the first frame update
-    void Start()
+
+    public void StartGame()
     {
-        cat.Say();
-        dog.Run();
-        horse.Jump();
-        rabbit.Eat();
+        CreateRandomPet();
+        DeactivateUI();
     }
 
-    // Update is called once per frame
+    public void DeactivateUI()
+    {
+        foreach (var ui in deactivatedUI)
+        {
+            if (ui.activeSelf)
+                ui.SetActive(false);
+            else
+                ui.SetActive(true);
+        }
+    }
+
+    public void CreateRandomPet()
+    {
+        var randomnimal = Random.Range(0, animals.Count);
+        animalName1 = animalName.text;
+        animals[randomnimal].AnimalName = animalName1;
+        outputText.text = animals[randomnimal].Eat();
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }

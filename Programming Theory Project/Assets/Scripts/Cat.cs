@@ -2,25 +2,25 @@ using UnityEngine;
 
 public class Cat : Animal
 {
-    public override void Eat()
+    public override string Eat()
     {
-        Debug.Log("Ћакает молочко...");
+        return $" иска {AnimalName} лакает молочко...";
     }
 
     public override void Jump()
     {
-        Debug.Log(" иска прыгает...");
+        Debug.Log($" иска {AnimalName} прыгает...");
     }
 
     public override void Run()
     {
-        Speed = 3;
-        Debug.Log(" иска бежит со скоростью " + Speed);
+        AnimalSpeed = 3;
+        Debug.Log($" иска {AnimalName} бежит со скоростью {AnimalSpeed} км/ч");
     }
 
     public override void Say()
     {
-        Debug.Log(" иска говорит ћ€ууууууу...");
+        Debug.Log($" иска {AnimalName} говорит ћ€ууууууу...");
         Run();
         Jump();
         Eat();

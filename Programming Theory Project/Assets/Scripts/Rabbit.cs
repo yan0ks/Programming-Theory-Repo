@@ -2,27 +2,29 @@ using UnityEngine;
 
 public class Rabbit : Animal
 {
-    public override void Eat()
+    public override string Eat()
     {
-        Debug.Log("Кролик есть морковку хрум-хрум...");
+        Debug.Log($"Кролик {AnimalName} ест морковку хрум-хрум...");
         Jump();
         Run();
         Say();
+        return $"Кролик {AnimalName} ест морковку хрум-хрум...";
+
     }
 
     public override void Jump()
     {
-        Debug.Log("Кролик прыгает прыг-скок...");
+        Debug.Log($"Кролик {AnimalName} прыгает прыг-скок...");
     }
 
     public override void Run()
     {
-        Speed = 4;
-        Debug.Log("Кролик бежит со скоростью..." + Speed);
+        AnimalSpeed = 4;
+        Debug.Log($"Кролик {AnimalName} бежит со скоростью {AnimalSpeed} км/ч");
     }
 
     public override void Say()
     {
-        Debug.Log("Кролику некогда говорить ведь он ест морковку хрум-хрум...");
+        Debug.Log($"Кролику {AnimalName} некогда говорить ведь он ест морковку хрум-хрум...");
     }
 }

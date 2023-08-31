@@ -1,22 +1,23 @@
+using OpenCover.Framework.Model;
 using UnityEngine;
 
 public abstract class Animal : MonoBehaviour
 {
-    private int speed = 0;
-    public int Speed
+    private int animalSpeed;
+    public int AnimalSpeed
     {
-        get
-        {
-            return speed;
-        }
-        set
-        {
-            speed = value;
-        }
+        get { return animalSpeed; }
+        set { animalSpeed = value; }
     }
 
+    private string animalName;
+    public string AnimalName
+    {
+        get { return animalName; }
+        set { animalName = value; }
+    }
 
-    public abstract void Eat();
+    public abstract string Eat();
 
     public abstract void Jump();
 

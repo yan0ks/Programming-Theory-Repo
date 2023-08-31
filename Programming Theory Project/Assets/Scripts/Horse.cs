@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class Horse : Animal
 {
-    public override void Eat()
+    public override string Eat()
     {
-        Debug.Log("Лошадка ест сено...");
+        return $"Лошадка {AnimalName} ест сено...";
     }
 
     public override void Jump()
     {
-        Debug.Log("Лошадка прыгает...");
+        Debug.Log($"Лошадка {AnimalName} прыгает...");
         Run();
         Say();
         Eat();
@@ -17,12 +17,12 @@ public class Horse : Animal
 
     public override void Run()
     {
-        Speed = 7;
-        Debug.Log("Лошадка скачет со скоростью ..." + Speed);
+        AnimalSpeed = 7;
+        Debug.Log($"Лошадка {AnimalName} скачет со скоростью {AnimalSpeed} км/ч");
     }
 
     public override void Say()
     {
-        Debug.Log("Лошадка говорит Иго-го...");
+        Debug.Log($"Лошадка {AnimalName} говорит Иго-го...");
     }
 }

@@ -2,20 +2,20 @@ using UnityEngine;
 
 public class Dog : Animal
 {
-    public override void Eat()
+    public override string Eat()
     {
-        Debug.Log("Собачка грызет косточку...");
+        return $"Собачка {AnimalName} грызет косточку...";
     }
 
     public override void Jump()
     {
-        Debug.Log("Собачка прыгает...");
+        Debug.Log($"Собачка {AnimalName} прыгает...");
     }
 
     public override void Run()
     {
-        Speed = 5;
-        Debug.Log("Собачка бежит со скоростью " + Speed);
+        AnimalSpeed = 5;
+        Debug.Log($"Собачка {AnimalName} бежит со скоростью {AnimalSpeed} км/ч");
         Say();
         Jump();
         Eat();
@@ -23,6 +23,6 @@ public class Dog : Animal
 
     public override void Say()
     {
-        Debug.Log("Собачка говорит Гав-Гав...");
+        Debug.Log($"Собачка {AnimalName} говорит Гав-Гав...");
     }
 }
